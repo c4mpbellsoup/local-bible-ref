@@ -272,7 +272,7 @@ export default class PassageSuggest extends EditorSuggest<PassageSuggestion> {
 
 	/** Removes footnote refs from the given text. */
 	private removeFootnoteRefs(text: string): string {
-		return text.replace(/ \[\^\w{1,9}\]/g, '');
+		return text.replace(/[ \t]?\[\^[^\]\r\n]*\](?!:)/g, '');
 	}
 
 	/** Removes the beginning-of-file content from the given text. */
